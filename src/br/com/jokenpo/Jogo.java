@@ -1,16 +1,16 @@
 package br.com.jokenpo;
 
 public class Jogo {
-    private Usuario usuario;
+    private Adversario adversario;
     private Computador computador;
-    private int usuarioScore;
+    private int adversarioScore;
     private int computadorScore;
     private int numeroDeJogadas;
 
     public Jogo() {
-        usuario = new Usuario();
+        adversario = new Adversario();
         computador = new Computador();
-        usuarioScore = 0;
+        adversarioScore = 0;
         computadorScore = 0;
         numeroDeJogadas = 0;
     }
@@ -19,13 +19,13 @@ public class Jogo {
         try {
             System.out.println("PEDRA, PAPEL, TESOURA !");
 
-            Escolha usuarioEscolha = usuario.getJogada();
+            Escolha adversarioEscolha = adversario.getJogada();
             Escolha computadorEscolha = computador.getJogada();
 
-            System.out.println("\nVocê escolheu " + usuarioEscolha);
+            System.out.println("\nVocê escolheu " + adversarioEscolha);
             System.out.println("O computador escolheu " + computadorEscolha);
 
-            verificarGanhador(usuarioEscolha, computadorEscolha);
+            verificarGanhador(adversarioEscolha, computadorEscolha);
 
             incrementarJogadas();
 
@@ -37,7 +37,7 @@ public class Jogo {
     }
 
     private void jogarOuFinalizar() {
-        if (usuario.jogarNovamente()) {
+        if (adversario.jogarNovamente()) {
             System.out.println();
             iniciar();
         } else {
@@ -49,28 +49,28 @@ public class Jogo {
         numeroDeJogadas++;
     }
 
-    private void verificarGanhador(Escolha usuarioEscolha, Escolha computadorEscolha) {
-        int resultado = usuarioEscolha.compareEscolhas(computadorEscolha);
+    private void verificarGanhador(Escolha adversarioEscolha, Escolha computadorEscolha) {
+        int resultado = adversarioEscolha.compareEscolhas(computadorEscolha);
 
         switch (resultado) {
             case 0:
                 System.out.println("Empate");
                 break;
             case 1:
-                System.out.println(usuarioEscolha + " ganha de " + computadorEscolha + ". Você venceu !");
-                usuarioScore++;
+                System.out.println(adversarioEscolha + " ganha de " + computadorEscolha + ". Você venceu !");
+                adversarioScore++;
                 break;
             case -1:
-                System.out.println(computadorEscolha + " ganha de " + usuarioEscolha + ". Você perdeu !");
+                System.out.println(computadorEscolha + " ganha de " + adversarioEscolha + ". Você perdeu !");
                 computadorScore++;
                 break;
         }
     }
 
     private void imprimirResultados() {
-        int vitorias = usuarioScore;
+        int vitorias = adversarioScore;
         int derrotas = computadorScore;
-        int empates = numeroDeJogadas - usuarioScore - computadorScore;
+        int empates = numeroDeJogadas - adversarioScore - computadorScore;
         double percentagemVitorias = (vitorias + ((double) empates) / 2) / numeroDeJogadas;
 
         System.out.print("+");

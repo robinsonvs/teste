@@ -2,20 +2,20 @@ package br.com.jokenpo;
 
 import java.util.Scanner;
 
-public class Usuario {
+public class Adversario {
     private Scanner scanner;
 
-    public Usuario() {
+    public Adversario() {
         scanner = new Scanner(System.in);
     }
 
     public Escolha getJogada() {
         System.out.println("Pedra, Papel ou Tesoura ?");
 
-        String usuarioInput = scanner.nextLine();
-        usuarioInput = usuarioInput.toUpperCase();
-        char primeiraLetra = usuarioInput.charAt(0);
-        char segunndaLetra = usuarioInput.charAt(1);
+        String adversarioInput = scanner.nextLine();
+        adversarioInput = adversarioInput.toUpperCase();
+        char primeiraLetra = adversarioInput.charAt(0);
+        char segunndaLetra = adversarioInput.charAt(1);
 
         if ((primeiraLetra == 'P' && (segunndaLetra == 'E' || segunndaLetra == 'A')) || primeiraLetra == 'T') {
             switch (primeiraLetra) {
@@ -29,8 +29,8 @@ public class Usuario {
 
     public boolean jogarNovamente() {
         System.out.println("Jogar novamente ?");
-        String usuarioInput = scanner.nextLine();
-        usuarioInput = usuarioInput.toUpperCase();
-        return usuarioInput.charAt(0) == 'S';
+        String adversarioInput = scanner.nextLine();
+        adversarioInput = adversarioInput.toUpperCase();
+        return adversarioInput.charAt(0) == 'S';
     }
 }
