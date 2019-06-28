@@ -9,7 +9,7 @@ public class Usuario {
         scanner = new Scanner(System.in);
     }
 
-    public Movimento getMovimento() {
+    public Escolha getJogada() {
         System.out.println("Pedra, Papel ou Tesoura ?");
 
         String usuarioInput = scanner.nextLine();
@@ -19,12 +19,12 @@ public class Usuario {
 
         if (primeiraLetra == 'P' && (segunndaLetra == 'E' || segunndaLetra == 'A') || primeiraLetra == 'T') {
             switch (primeiraLetra) {
-                case 'P': return segunndaLetra == 'E' ? Movimento.PEDRA : Movimento.TESOURA;
-                case 'T': return Movimento.TESOURA;
+                case 'P': return segunndaLetra == 'E' ? Escolha.PEDRA : Escolha.TESOURA;
+                case 'T': return Escolha.TESOURA;
             }
         }
 
-        return getMovimento();
+        return getJogada();
     }
 
     public boolean jogarNovamente() {
