@@ -17,6 +17,8 @@ public class Jogo {
 
     public void iniciar() {
         try {
+            System.out.println("PEDRA, PAPEL, TESOURA !");
+
             Escolha usuarioEscolha = usuario.getJogada();
             Escolha computadorEscolha = computador.getJogada();
 
@@ -59,7 +61,7 @@ public class Jogo {
                 usuarioScore++;
                 break;
             case -1:
-                System.out.println(computadorEscolha + " ganha de " + usuarioEscolha + ". Você perdeu.");
+                System.out.println(computadorEscolha + " ganha de " + usuarioEscolha + ". Você perdeu !");
                 computadorScore++;
                 break;
         }
@@ -75,7 +77,7 @@ public class Jogo {
         imprimirTracos(95);
         System.out.println("+");
 
-        System.out.printf("|   %6s   |   %6s   |   %6s   |   %12s   |    %14s    |\n",
+        System.out.printf("|   %6s    |   %6s   |   %6s   |   %12s   |    %14s    |\n",
                 "VITÓRIAS", "DERROTAS", "EMPATES", "JOGOS REALIZADOS", "PORCENTAGEM VITÓRIA");
 
         System.out.print("|");

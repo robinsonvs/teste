@@ -17,9 +17,9 @@ public class Usuario {
         char primeiraLetra = usuarioInput.charAt(0);
         char segunndaLetra = usuarioInput.charAt(1);
 
-        if (primeiraLetra == 'P' && (segunndaLetra == 'E' || segunndaLetra == 'A') || primeiraLetra == 'T') {
+        if ((primeiraLetra == 'P' && (segunndaLetra == 'E' || segunndaLetra == 'A')) || primeiraLetra == 'T') {
             switch (primeiraLetra) {
-                case 'P': return segunndaLetra == 'E' ? Escolha.PEDRA : Escolha.TESOURA;
+                case 'P': return segunndaLetra == 'E' ? Escolha.PEDRA : Escolha.PAPEL;
                 case 'T': return Escolha.TESOURA;
             }
         }
